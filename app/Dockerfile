@@ -15,6 +15,10 @@ RUN yum install centos-release-scl emacs-nox file gcc gcc-gfortran git make whic
 # install Python 3;
 RUN yum install rh-python36 -y
 
+# install miniconda3
+RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+RUN sh Miniconda3-latest-Linux-x86_64.sh
+
 # clone PRMS source;
 RUN cd /usr/local/src && git clone https://github.com/nhm-usgs/prms.git
 
