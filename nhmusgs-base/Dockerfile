@@ -24,6 +24,10 @@ RUN if [ "$insecure" = -k ]; then \
 RUN conda update -n base conda -y $insecure
 RUN conda install -n base -c conda-forge $insecure \
     python=3.8 \
+    dask \
+    pydap \
+    bottleneck \
+    numbagg \
     geopandas \
     nco \
     netcdf4 \
