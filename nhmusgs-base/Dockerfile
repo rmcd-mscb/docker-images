@@ -1,5 +1,5 @@
 # using Miniconda 3 as the base image...
-FROM continuumio/miniconda3:4.7.12
+FROM continuumio/miniconda3:4.8.3
 
 LABEL maintainer="ashalper@usgs.gov"
 
@@ -22,16 +22,16 @@ RUN if [ "$insecure" = -k ]; then \
 
 # Update/upgrade Conda
 RUN conda update -n base conda -y $insecure
-RUN conda install -n base -c defaults -c conda-forge $insecure \
-    python=3.7 \
-    dask \
+RUN conda install -n base -c conda-forge $insecure \
+    python=3.8 \
     geopandas \
     nco \
     netcdf4 \
     pandas\
     requests \
     xarray \
-    xmltodict
+    xmltodict \
+    metpy
 RUN conda clean -a
 
 ENV NHM_SOURCE_DIR=/usr/local/src
